@@ -13,28 +13,28 @@
     <link rel="stylesheet" href="css/styles.css">
     
     <!-- Favicon-->
-    <link rel="shortcut icon" type="image/jpg" href="/favicon.jpg"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 
     <title>To-Do Rust</title>
   </head>
   <body class="container-fluid">
     <div class="col-center text-center" style="padding: 3rem;">
         <h1 class="display-4">To-Do Rust</h1>
-        <h3 class="text-muted" style="font-size: 1.5rem; font-weight: 100; line-height: 1;">Let's get things done</h3>
+        <h3 class="text-muted" style="font-size: 1.5rem; font-weight: 100; line-height: 1;">let's get things done</h3>
     </div>
     <div class="row justify-content-md-center">
         <div class="col-md-4 order-md2 mb-4 inner cover" style="align-items: center;">
             <div class="card text-center" style="width: auto;">
                 <div class="card-body">
-                    <h5 id="Title" class="card-title">START</h5>
+                    <h5 id="timerTitle" class="card-title">START</h5>
                     <h3 id="timer" class="card-subtitle mb-2 text-muted">25 : 00</h6>
                     <button type="button" id="play_button" class="btn btn-outline-success btn-circle"><i class="fas fa-play"></i></button>
                 </div>
             </div>
         </div>
         <div class="col-md-4 order-md2 mb-4">
-            <div id="todolist">
-                <ul class="list-group mb-3">
+            <div>
+                <ul id="todo" class="list-group mb-3">
                     <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                         <h6 class="my-0">Create a to-do list</h6>
@@ -80,7 +80,7 @@
   </body>
   <footer class="container-fluid">
         <div class="row justify-content-md-center">
-          <script>document.write(new Date().getFullYear())</script> © <a href="https://arba.dev">arba.dev</a>
+          <script>document.write(new Date().getFullYear())</script> ©&nbsp;made with &#x1F493; by&nbsp;<a href="https://arba.dev">arba.dev</a>
         </div>
   </footer>
 </html>
