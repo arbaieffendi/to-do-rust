@@ -1,8 +1,8 @@
-var seconds, interval;
+var seconds, interval, minutes;
 timer = new Timer();
 
 document.getElementById("play_button").onclick = function() {
-    var minutes = document.getElementById("timer_range").value;
+    minutes = document.getElementById("timer_range").value;
     timer.play(minutes);
     document.getElementById("timer_range").disabled = true;
     document.getElementById("play_button").style = "display: none;";

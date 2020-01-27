@@ -24,7 +24,7 @@ class Timer {
                     alert("You've reach the finish line. Awesome ! 😎");
                     return;
                 }
-                seconds = minutes*60 || 0;
+                seconds = 59 || 0;
                 minutes--;
             }
             console.log("Interval: " + interval);
@@ -33,5 +33,6 @@ class Timer {
 
     stop(interval){
         clearInterval(interval);
+        console.log("Timer stop !");
     }
 }
