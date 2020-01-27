@@ -24,15 +24,15 @@
     </div>
     <div class="row justify-content-md-center">
         <div class="col-md-4 order-md2 mb-4 inner cover" style="align-items: center;">
-            <div class="card text-center" style="width: auto;">
+            <div id="countdowntimer" class="card text-center">
                 <div class="card-body">
                     <h5 id="title_text" class="card-title">START</h5>
                     <h3 id="timer_text" class="card-subtitle mb-2 text-muted">25 min</h6>
                     <button type="button" id="play_button" class="btn btn-outline-success btn-circle"><i class="fas fa-play"></i></button>
                     <button type="button" id="stop_button" class="btn btn-outline-danger btn-circle" style="display: none;"><i class="fas fa-stop"></i></button>
-                </div>
-                <div class="card-subtitle" style="margin-left: 3rem; margin-right: 3rem;">
-                    <input type="range" class="custom-range" id="timer_range" name="minute" min="5" max="60" step="5" value="25">
+                    <div style="margin-left: 3rem; margin-right: 3rem; margin-top: 1rem;">
+                        <input type="range" class="custom-range slider" id="timer_range" name="minute" min="5" max="60" step="5" value="25">
+                    </div>
                 </div>
             </div>
         </div>
