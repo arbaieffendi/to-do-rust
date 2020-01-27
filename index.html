@@ -19,16 +19,20 @@
   </head>
   <body class="container-fluid">
     <div class="col-center text-center" style="padding: 3rem;">
-        <h1 class="display-4">To-Do Rust</h1>
-        <h3 class="text-muted" style="font-size: 1.5rem; font-weight: 100; line-height: 1;">Let's get things done</h3>
+        <h1 class="display-4">To Do Rust<sup style="font-size: x-small;">(Preview)</sup></h1>
+        <h3 class="text-muted" style="font-size: 1rem; font-weight: 100; line-height: 1;">Let's get things done</h3>
     </div>
     <div class="row justify-content-md-center">
         <div class="col-md-4 order-md2 mb-4 inner cover" style="align-items: center;">
             <div class="card text-center" style="width: auto;">
                 <div class="card-body">
                     <h5 id="Title" class="card-title">START</h5>
-                    <h3 id="timer" class="card-subtitle mb-2 text-muted">25 : 00</h6>
+                    <h3 id="timer" class="card-subtitle mb-2 text-muted">25 min</h6>
                     <button type="button" id="play_button" class="btn btn-outline-success btn-circle"><i class="fas fa-play"></i></button>
+                    <button type="button" id="stop_button" class="btn btn-outline-danger btn-circle" style="display: none;"><i class="fas fa-stop"></i></button>
+                </div>
+                <div class="card-subtitle" style="margin-left: 3rem; margin-right: 3rem;">
+                    <input type="range" class="custom-range" id="timer_range" name="minute" min="5" max="90" step="5" value="25">
                 </div>
             </div>
         </div>
