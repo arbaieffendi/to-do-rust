@@ -1,28 +1,50 @@
+class TodoItem {
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
+    }
+    
+    create(title, description){
+        return JSON.stringify(new TodoItem(title, description));
+    }
+}
+
 class ToDo {
-    constructor() {}
+    constructor() {
+        this.todoItem = new TodoItem();
+    }
 
-    addToDo(){
+    toDoList = [];
+
+    add(title, description){
+        var data = localStorage.getItem("todo");
+        if (data === null) data = "";
+        
+        this.toDoList.push(todoItem.create("Create a to-do list", "Brief Description"))
+        
+        localStorage.setItem("todo", this.toDoList);
+    }
+
+    check(){
         throw "Not Implemented Yet";
     }
 
-    checkToDo(){
+    uncheck(){
         throw "Not Implemented Yet";
     }
 
-    uncheckToDo(){
+    delete(){
         throw "Not Implemented Yet";
     }
 
-    deleteToDo(){
+    clear(){
         throw "Not Implemented Yet";
     }
 
-    clearToDo(){
-        throw "Not Implemented Yet";
-    }
-
-    exportToDo(){
+    export(){
         throw "Not Implemented Yet";
     }
 
 }
+
+todoItem = new TodoItem();
