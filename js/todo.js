@@ -3,6 +3,8 @@ class TodoItem {
         this.title = title;
         this.description = description;
     }
+
+    status;
     
     create(title, description){
         return JSON.stringify(new TodoItem(title, description));
@@ -14,13 +16,23 @@ class ToDo {
         this.todoItem = new TodoItem();
     }
 
-    toDoList = [];
+    build(){
+        document.getElementById("todolist").innerHTML = `
+        <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">Create a to-do list</h6>
+                <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">12 min</span>
+        </li>
+        `
+    }
 
     add(title, description){
-        var data = localStorage.getItem("todo");
-        if (data === null) data = "";
+        // var data = localStorage.getItem("todo");
+        // if (data === null) data = "";
         
-        this.toDoList.push(todoItem.create("Create a to-do list", "Brief Description"))
+        this.toDoList.push(todoItem.create(title, description))
         
         localStorage.setItem("todo", this.toDoList);
     }

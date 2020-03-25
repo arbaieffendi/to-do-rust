@@ -15,6 +15,8 @@
     <!-- Favicon-->
     <link rel="shortcut icon" type="image/jpg" href="assets/favicon.ico"/>
 
+    <script src="js/init.js"></script>
+
     <title>To-Do Rust</title>
   </head>
   <body class="container-fluid">
@@ -37,28 +39,18 @@
             </div>
         </div>
         <div class="col-md-4 order-md2 mb-4">
-            <div id="todolist">
-                <ul class="list-group mb-3">
-                    <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div id="todolist-section">
+                <!-- <ul id="todolist" class="list-group mb-3" onbeforeload="buildTodo()"> -->
+                <ul id="todolist" class="list-group mb-3">
+                    <script type="text/javascript">
+                        initToDoList();
+                    </script>
+                    <!-- <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                         <h6 class="my-0">Create a to-do list</h6>
                         <small class="text-muted">Brief description</small>
                         </div>
                         <span class="text-muted">12 min</span>
-                    </li>
-                    <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                        <h6 class="my-0">Design a mockup</h6>
-                        <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">8 min</span>
-                    </li>
-                    <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                        <h6 class="my-0">Create new prototype</h6>
-                        <small class="text-muted">Brief description</small>
-                        </div>
-                        <span class="text-muted">5 min</span>
                     </li>
                     <li draggable="true" class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
@@ -66,13 +58,13 @@
                         <small>Brief description</small>
                         </div>
                         <span class="text-success">5 min</span>
-                    </li>
-                    </ul>
+                    </li> -->
+                </ul>
             </div>
             <div class="text-center">
                 <button type="button" id="add_button" class="btn btn-outline-success btn-circle"><i class="fas fa-plus"></i></button>
             </div>
-        </div>
+        </div >
     </div>
 
     <audio id="notification" class="sound-player" autoplay="autoplay" style="display:none;">
@@ -91,7 +83,7 @@
   </body>
   <footer class="container-fluid">
         <div class="row justify-content-md-center">
-          <script>document.write(new Date().getFullYear())</script> © <a href="https://arba.dev">arba.dev</a>
+          <script>document.write(new Date().getFullYear())</script>&nbsp;©&nbsp;<a href="https://arba.dev">arba.dev</a>
         </div>
   </footer>
 </html>
