@@ -1,6 +1,7 @@
+// Initialization
 var seconds, interval, minutes;
-timer = new Timer();
-todo = new ToDo();
+var timer = new Timer();
+var todo = new ToDo();
 
 document.getElementById("play_button").onclick = function() {
     minutes = document.getElementById("timer_range").value;
@@ -24,6 +25,19 @@ document.getElementById("timer_range").oninput = function() {
 }
 
 document.getElementById("add_button").onclick = function() {
-    todo.add();
-}
+    let todoData = localStorage.getItem(`todo`);
+    if (todoData === null || todoData === undefined) {
+        todo.create();
+        loadToDoList();
 
+        console.log("todo list initialized")
+    } else {
+        todo.add("New stuff to be complete", "Some description here");
+
+        loadToDoList();
+
+        console.log("todo added");
+    }
+
+    return;
+}

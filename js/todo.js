@@ -1,35 +1,52 @@
-class TodoItem {
-    constructor(title, description) {
-        this.title = title;
-        this.description = description;
-    }
-    
-    create(title, description){
-        return JSON.stringify(new TodoItem(title, description));
-    }
-}
-
 class ToDo {
     constructor() {
-        this.todoItem = new TodoItem();
+        this.data = [];
     }
 
-    toDoList = [];
+    build(){
+        document.getElementById("todolist").innerHTML = `
+        <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+                <h6 class="my-0">Create a to-do list</h6>
+                <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">12 min</span>
+        </li>
+        `
+    }
 
+    // create new fresh todo list
+    create(){
+        this.data.push(new TodoItem("New to-do", "add description here"));
+
+        let dataAsString = JSON.stringify(this.data);
+        localStorage.setItem("todo", dataAsString);
+
+        console.log(`Todo list created`);
+    }
+
+    // add new todo item into existing list
     add(title, description){
-        var data = localStorage.getItem("todo");
-        if (data === null) data = "";
+        let data = localStorage.getItem("todo");
         
-        this.toDoList.push(todoItem.create("Create a to-do list", "Brief Description"))
-        
-        localStorage.setItem("todo", this.toDoList);
+        this.data = JSON.parse(data);
+        this.data.push(new TodoItem(title, description));
+
+        let dataAsString = JSON.stringify(this.data);
+        localStorage.setItem("todo", dataAsString);
+
+        console.log(data + ` has been added to the list`);
     }
 
-    check(){
+    edit(id, title, description){
+
+    }
+    
+    complete(){
         throw "Not Implemented Yet";
     }
 
-    uncheck(){
+    uncomplete(){
         throw "Not Implemented Yet";
     }
 
@@ -45,6 +62,13 @@ class ToDo {
         throw "Not Implemented Yet";
     }
 
+}
+
+class TodoItem {
+    constructor(title, description) {
+        this.title = title;
+        this.description = description;
+    }
 }
 
 todoItem = new TodoItem();
