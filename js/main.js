@@ -1,14 +1,7 @@
 // Initialization
 var seconds, interval, minutes;
 var timer = new Timer();
-
-// var todo = JSON.parse( localStorage.getItem('todo') || null);
-// console.log(todo);
-// if ( todo === null ) {
-//     todo = new ToDo();
-//     console.log("ToDo object is created");
-// }
-// console.log(todo);
+var todo = new ToDo();
 
 document.getElementById("play_button").onclick = function() {
     minutes = document.getElementById("timer_range").value;
@@ -32,33 +25,16 @@ document.getElementById("timer_range").oninput = function() {
 }
 
 document.getElementById("add_button").onclick = function() {
-    console.log(todo);
-    if (todo === null) {
-        todo = new ToDo();
-        todo.add("Create a to-do list using add_button", "Brief Description");
+    let todoData = localStorage.getItem(`todo`);
+    if (todoData === null || todoData === undefined) {
+        todo.create();
+        loadToDoList();
 
-        document.getElementById("todolist").innerHTML = `
-        <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-                <h6 class="my-0">Create a to-do list</h6>
-                <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">12 min</span>
-        </li>
-        `
-
-        console.log("todo created")
+        console.log("todo list initialized")
     } else {
-        todo.add("Tambah", "Brief Description");
-        document.getElementById("todolist").appendChild = `
-        <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-                <h6 class="my-0">Create a to-do list</h6>
-                <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">12 min</span>
-        </li>
-        `
+        todo.add("New stuff to be complete", "Some description here");
+
+        loadToDoList();
 
         console.log("todo added");
     }

@@ -1,14 +1,15 @@
-function initToDoList(){
-    // alert("todolist onload");
-    
-    console.log("init todo list");
-    var data = "["+localStorage.getItem('todo')+"]";
-    console.log(data);
-    var todoItems = JSON.parse(data);
-    console.log(todoItems);
+// display todo item in the localstorage to the view
+function loadToDoList(){
+    console.log("Init todo list");
 
-    // console.log(localStorage.getItem('todo'));
+    let todoItems = JSON.parse(localStorage.getItem('todo'));
+
+    // clear the list
+    document.getElementById("todolist").innerHTML = "";
+
+    // update the display todo list
     todoItems.forEach((item) => {
+        console.log("let me see the item");
         console.log(item);
         
         document.getElementById("todolist").innerHTML += `
@@ -21,4 +22,5 @@ function initToDoList(){
         </li>
         `;
     });
+
 }
