@@ -1,6 +1,6 @@
 // display todo item in the localstorage to the view
 function loadToDoList(){
-    console.log("Init todo list");
+    console.log("todo reload");
 
     let todoItems = JSON.parse(localStorage.getItem('todo'));
 
@@ -10,9 +10,6 @@ function loadToDoList(){
         
         // update the display todo list
         todoItems.forEach((item) => {
-            console.log("let me see the item");
-            console.log(item);
-            
             document.getElementById("todolist").innerHTML += `
             <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
                 <div>
