@@ -58,11 +58,11 @@ class ToDo {
 }
 
 class TodoItem {
-    constructor(title, description, estimation) {
+    constructor(title, description) {
         this.id = this.generateID();
         this.title = title;
         this.description = description;
-        this.estimation = estimation;
+        this.estimation = 25; //default
         this.isActive = false;
     }
     
