@@ -1,10 +1,8 @@
 function showActionMenu(id){
-    console.log(id);
     document.getElementById(id).style.display = `inline`;
 }
 
 function hideActionMenu(id){
-    console.log(id);
     document.getElementById(id).style.display = `none`;
 }
 
