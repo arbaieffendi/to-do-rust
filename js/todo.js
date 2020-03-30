@@ -3,18 +3,6 @@ class ToDo {
         this.data = [];
     }
 
-    build(){
-        document.getElementById("todolist").innerHTML = `
-        <li draggable="true" class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-                <h6 class="my-0">Create a to-do list</h6>
-                <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">12 min</span>
-        </li>
-        `
-    }
-
     // create new fresh todo list with 1 item
     create(){
         let newData = new TodoItem("New to-do", "add description here");
@@ -70,10 +58,12 @@ class ToDo {
 }
 
 class TodoItem {
-    constructor(title, description) {
-        this.id = this.generateID()
+    constructor(title, description, estimation) {
+        this.id = this.generateID();
         this.title = title;
         this.description = description;
+        this.estimation = estimation;
+        this.isActive = false;
     }
     
     // Algorithm to generate GUID below are Jeff Ward's answer in
