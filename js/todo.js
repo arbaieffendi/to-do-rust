@@ -50,12 +50,17 @@ class ToDo {
         return null;
     }
     
-    complete(){
-        throw "Not Implemented Yet";
-    }
-
-    uncomplete(){
-        throw "Not Implemented Yet";
+    check(id){
+        this.data = JSON.parse(localStorage.getItem('todo'));
+        for(var i=0; i < this.data.length; i++){
+            if (this.data[i].id == id) {
+                this.data[i].isCompleted = true;
+                console.log(id + " completed !");
+                localStorage.setItem('todo', JSON.stringify(this.data));
+                return true;
+            }
+        }
+        return false;
     }
 
     delete(id){
@@ -64,13 +69,11 @@ class ToDo {
         for(var i=0; i < this.data.length; i++){
             if (this.data[i].id == id) {
                 this.data.splice(i, 1);
-                console.log(this.data);
                 console.log(id + " remove successfully");
                 localStorage.setItem('todo', JSON.stringify(this.data));
                 return true;
             }
         }
-        
         return false;
     }
 
@@ -91,6 +94,7 @@ class TodoItem {
         this.description = description;
         this.estimation = 25; //default
         this.isSelected = false;
+        this.isCompleted = false;
     }
     
     // Algorithm to generate GUID below are Jeff Ward's answer in

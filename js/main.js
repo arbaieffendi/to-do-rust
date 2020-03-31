@@ -38,7 +38,7 @@ document.getElementById("add_button").onclick = function() {
 
         console.log("todo added");
     }
-
+    
     return;
 }
 
@@ -52,6 +52,10 @@ function hideActionMenu(id){
 
 function deleteToDoItem(id){
     let item = todo.delete(id);
-    console.log(item);
+    loadToDoList();
+}
+
+function checkToDoItem(id){
+    let item = todo.check(id);
     loadToDoList();
 }
