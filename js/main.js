@@ -38,6 +38,24 @@ document.getElementById("add_button").onclick = function() {
 
         console.log("todo added");
     }
-
+    
     return;
+}
+
+function showActionMenu(id){
+    document.getElementById(id).style.display = `inline`;
+}
+
+function hideActionMenu(id){
+    document.getElementById(id).style.display = `none`;
+}
+
+function deleteToDoItem(id){
+    let item = todo.delete(id);
+    loadToDoList();
+}
+
+function checkToDoItem(id){
+    let item = todo.check(id);
+    loadToDoList();
 }
