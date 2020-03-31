@@ -30,10 +30,10 @@
                 <div class="card-body">
                     <h5 id="title_text" class="card-title">START</h5>
                     <h3 id="timer_text" class="card-subtitle mb-2 text-muted">25 min</h6>
-                    <button type="button" id="play_button" class="btn btn-outline-success btn-circle"><i class="fas fa-play"></i></button>
-                    <button type="button" id="stop_button" class="btn btn-outline-danger btn-circle" style="display: none;"><i class="fas fa-stop"></i></button>
+                    <button type="button" id="play_button" class="btn btn-outline-success btn-circle" onclick="play_buttonOnClick()"><i class="fas fa-play"></i></button>
+                    <button type="button" id="stop_button" class="btn btn-outline-danger btn-circle" style="display: none;" onclick="stop_buttonOnClick()"><i class="fas fa-stop"></i></button>
                     <div style="margin-left: 3rem; margin-right: 3rem; margin-top: 1rem;">
-                        <input type="range" class="custom-range slider" id="timer_range" name="minute" min="5" max="60" step="5" value="25">
+                        <input type="range" class="custom-range slider" id="timer_range" name="minute" min="5" max="60" step="5" value="25" oninput="timer_rangeOnInput()">
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 </ul>
             </div>
             <div class="text-center">
-                <button type="button" id="add_button" class="btn btn-outline-success btn-circle"><i class="fas fa-plus"></i></button>
+                <button type="button" id="add_button" class="btn btn-outline-success btn-circle" onclick="add_buttonOnClick()"><i class="fas fa-plus"></i></button>
             </div>
         </div >
     </div>

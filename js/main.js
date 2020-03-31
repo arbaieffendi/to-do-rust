@@ -3,7 +3,7 @@ var seconds, interval, minutes;
 var timer = new Timer();
 var todo = new ToDo();
 
-document.getElementById("play_button").onclick = function() {
+function play_buttonOnClick() {
     minutes = document.getElementById("timer_range").value;
     timer.play(minutes);
     document.getElementById("timer_range").disabled = true;
@@ -11,7 +11,7 @@ document.getElementById("play_button").onclick = function() {
     document.getElementById("stop_button").style = "display: inline;";
 }
 
-document.getElementById("stop_button").onclick = function() {
+function stop_buttonOnClick(){
     timer.stop(interval);
     document.getElementById("timer_range").disabled = false;
     document.getElementById("timer_text").innerHTML = document.getElementById("timer_range").value + " min";
@@ -19,12 +19,12 @@ document.getElementById("stop_button").onclick = function() {
     document.getElementById("stop_button").style = "display: none;";
 }
 
-document.getElementById("timer_range").oninput = function() {
+function timer_rangeOnInput(){
     var x = document.getElementById("timer_range").value;
     document.getElementById("timer_text").innerHTML = x + " min";
 }
 
-document.getElementById("add_button").onclick = function() {
+function add_buttonOnClick(){
     let todoData = localStorage.getItem(`todo`);
     if (todoData === null || todoData === undefined) {
         todo.create();
