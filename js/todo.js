@@ -34,6 +34,21 @@ class ToDo {
     edit(id, title, description){
 
     }
+
+    find(id){
+        // find the index in localstorage
+        let data = localStorage.getItem("todo");
+        this.data = JSON.parse(data);
+
+        for(var i=0; i < this.data.length; i++){
+            if (this.data[i].id == id) {
+                console.log(this.data[i].id);
+                return this.data[i];
+            }
+        }
+
+        return null;
+    }
     
     complete(){
         throw "Not Implemented Yet";
@@ -43,8 +58,20 @@ class ToDo {
         throw "Not Implemented Yet";
     }
 
-    delete(){
-        throw "Not Implemented Yet";
+    delete(id){
+        this.data = JSON.parse(localStorage.getItem('todo'));
+        console.log(this.data)
+        for(var i=0; i < this.data.length; i++){
+            if (this.data[i].id == id) {
+                this.data.splice(i, 1);
+                console.log(this.data);
+                console.log(id + " remove successfully");
+                localStorage.setItem('todo', JSON.stringify(this.data));
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     clear(){
@@ -63,7 +90,7 @@ class TodoItem {
         this.title = title;
         this.description = description;
         this.estimation = 25; //default
-        this.isActive = false;
+        this.isSelected = false;
     }
     
     // Algorithm to generate GUID below are Jeff Ward's answer in

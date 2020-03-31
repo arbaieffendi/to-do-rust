@@ -1,11 +1,3 @@
-function showActionMenu(id){
-    document.getElementById(id).style.display = `inline`;
-}
-
-function hideActionMenu(id){
-    document.getElementById(id).style.display = `none`;
-}
-
 // display todo item in the localstorage to the view
 function loadToDoList(){
     console.log("todo reload");
@@ -30,7 +22,7 @@ function loadToDoList(){
                 </div>
                 <div id="action`+ item.id +`" style="display: none;">
                     <button type="button" id="complete_button" class="btn btn-outline-success btn-circle"><i class="fas fa-check"></i></button>
-                    <button type="button" id="complete_button" class="btn btn-outline-danger btn-circle"><i class="fas fa-trash"></i></button>
+                    <button type="button" id="complete_button" class="btn btn-outline-danger btn-circle" onclick="deleteToDoItem('`+ item.id +`')"><i class="fas fa-trash"></i></button>
                 </div>
             </li>
             `;

@@ -41,3 +41,17 @@ document.getElementById("add_button").onclick = function() {
 
     return;
 }
+
+function showActionMenu(id){
+    document.getElementById(id).style.display = `inline`;
+}
+
+function hideActionMenu(id){
+    document.getElementById(id).style.display = `none`;
+}
+
+function deleteToDoItem(id){
+    let item = todo.delete(id);
+    console.log(item);
+    loadToDoList();
+}
