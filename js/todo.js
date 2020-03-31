@@ -54,9 +54,15 @@ class ToDo {
         this.data = JSON.parse(localStorage.getItem('todo'));
         for(var i=0; i < this.data.length; i++){
             if (this.data[i].id == id) {
-                this.data[i].isCompleted = true;
-                console.log(id + " completed !");
-                localStorage.setItem('todo', JSON.stringify(this.data));
+                if (this.data[i].isCompleted){
+                    this.data[i].isCompleted = false;
+                    console.log(id + " restored !");
+                    localStorage.setItem('todo', JSON.stringify(this.data));
+                } else {
+                    this.data[i].isCompleted = true;
+                    console.log(id + " completed !");
+                    localStorage.setItem('todo', JSON.stringify(this.data));
+                }
                 return true;
             }
         }
